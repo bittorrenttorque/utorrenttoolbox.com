@@ -104,6 +104,49 @@
                 </div>  
             </div>
             <div class="span6">
+                <section id="save-preset">
+                    <form action="" class="form-horizontal">
+                        <h3>Save New Preset</h3>
+                        <br>
+                        <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="name">Name</label>
+
+                            <div class="controls">
+                            <input type="text" id="name" name="name" />
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label class="control-label" for="description">Description</label>
+                            <div class="controls">
+                                <textarea name="description" id="description" rows="2"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="tag" class="control-label">Category</label>
+                            <div class="controls">
+                                <select name="tag" id="tag">
+                                    <option value="category1">Category 1</option>
+                                    <option value="category2">Category 2</option>
+                                    <option value="category3">Category 3</option>
+                                    <option value="category4">Category 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-primary">Save Preset</button>
+                            <button class="btn">Cancel</button>
+                        </div>
+                        </fieldset>
+                    </form>
+                    <hr>
+                </section>
+
+                <h3>Presets List</h3>
+                <br>
                 <ul class="thumbnails">
                     <li class="span12">
                         <div class="thumbnail">
