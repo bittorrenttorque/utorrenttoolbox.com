@@ -6,7 +6,9 @@
         initialize: function()
         {
             var _this = this;
-            
+            this.settings = {};
+            this.loadAll();
+
             this.startTemplates();
 
             this.element = $('#settings');
@@ -19,6 +21,7 @@
             {
                 e.preventDefault();
                 _this.setCurrent($(this).data('content'), $(this).text());
+                _this.setValues();
             });
 
             this.element.on('click', '.go_back', function(e)
@@ -62,6 +65,91 @@
 
             this.child_menu.html(html);
             this.element.addClass('sub');
+        },
+        setValues: function()
+        {
+            var self = this;
+            $('select, input, textarea', this.child_menu).each(function()
+            {
+                var el = $(this);
+                var s = self.settings[el.attr('name')];
+                
+                if(el.data('scope') == 'local' && !s)
+                {
+                    switch(el.attr('name'))
+                    {
+                        case 'use_compact':
+                            var use_compact = localStorage.getItem('use_compact');
+                            $('#use_compact').prop('checked', use_compact && use_compact != 'false').trigger('change');
+                            break;
+                        case 'multi_day_transfer_mode':
+                            var value;
+                            
+                            if(self.settings.multi_day_transfer_mode_uldl.value == 'true')
+                                value = '2';
+                            else if(self.settings.multi_day_transfer_mode_dl.value == 'true')
+                                value = '1';
+                            else
+                                value = '0';
+                                
+                            $('#multi_day_transfer_mode').val(value);
+                            break;
+                    }
+                }else if(s){
+                    if(el.is(':checkbox'))
+                    {
+                        el.prop('checked', s.value == 'true' || s.value == '1');
+                    }else{
+                        el.val(s.value);
+                    }
+                    
+                    if(s.type === 0)
+                        el.addClass('number');
+/**                    
+                    if(s.access == 'R')
+                        el.attr('disabled', 'disabled');
+**/
+                }
+                
+                if(el.data('depends'))
+                {
+                    el.prop('disabled', !$('[name="' + el.data('depends') + '"]', this.inner_menu_element).is(':checked'));
+                }
+            });
+        },
+        loadAll: function()
+        {
+            this.first_load = true;
+            this.btapp = new Btapp();
+            this.btapp.connect({
+                queries: ['btapp/settings/']
+            });
+            this.btapp.on('add:settings', function(settings) {
+                function processSetting(value, key) {
+                    this.settings[key] = {
+                        type: typeof value,
+                        value: value
+                    };
+                    if(key == 'webui.cookie')
+                    {
+                        var parsed = JSON.parse(value);
+                        _.each(parsed, function(val, key)
+                        {
+                            this.settings['webui._cookie.' + key] = {
+                                type: !isNaN(val) ? 0 : (val == 'true' && val == 'false' ? 1 : 2),
+                                value: '' + val
+                            };
+                        });
+                    }
+                }
+                function processSettings(settings) {
+                    _.each(settings, processSetting, this);
+                }
+                processSettings.call(this,  settings.toJSON());
+                settings.on('change', function() {
+                    processSettings.call(this, this.btapp.get('settings').toJSON());
+                }, this);
+            }, this);
         }
     }
 
