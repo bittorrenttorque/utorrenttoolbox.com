@@ -16,8 +16,10 @@ $(function()
         var html = '';
         _.each(index, function(key)
         {
-            if(key != 'pairing_key');
+            if(key != 'pairing_key')
+            {
                 html += pinned_template($.jStorage.get(key));
+            }
         });
 
         $('#pinned-container').toggleClass('hidden', html.length <= 0);
