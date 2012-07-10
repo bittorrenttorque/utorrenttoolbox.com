@@ -1,29 +1,134 @@
 <html>
-	<head>
-		<!-- collection of general dependencies -->
-		<script type="text/javascript" src="javascripts/lib/jquery.js"></script>
-		<script type="text/javascript" src="javascripts/lib/json2.js"></script>
-		<script type="text/javascript" src="javascripts/lib/underscore.js"></script>
-		<script type="text/javascript" src="javascripts/lib/backbone.js"></script>
+    <head>
+        <!-- collection of general dependencies -->
+        <script type="text/javascript" src="javascripts/lib/jquery.js"></script>
+        <script type="text/javascript" src="javascripts/lib/json2.js"></script>
+        <script type="text/javascript" src="javascripts/lib/underscore.js"></script>
+        <script type="text/javascript" src="javascripts/lib/backbone.js"></script>
+        <script type="text/javascript" src="javascripts/lib/handlebars.js"></script>
 
-		<!-- pwmckenna/backbrace submodule -->
-		<script type="text/javascript" src="javascripts/backbrace/backbrace.js"></script>
-		<!-- pwmckenna/btapp submodule -->
-		<script type="text/javascript" src="javascripts/btapp/btapp.js"></script>
-		<script type="text/javascript" src="javascripts/btapp/client.btapp.js"></script>
-		<script type="text/javascript" src="javascripts/btapp/plugin.btapp.js"></script>
-		<script type="text/javascript" src="javascripts/btapp/pairing.btapp.js"></script>
-		<!-- pwmckenna/jStorage submodule -->
-		<script type="text/javascript" src="javascripts/jStorage/jstorage.min.js"></script>
+        <!-- pwmckenna/backbrace submodule -->
+        <script type="text/javascript" src="javascripts/backbrace/backbrace.js"></script>
+        <!-- pwmckenna/btapp submodule -->
+        <script type="text/javascript" src="javascripts/btapp/btapp.js"></script>
+        <script type="text/javascript" src="javascripts/btapp/client.btapp.js"></script>
+        <script type="text/javascript" src="javascripts/btapp/plugin.btapp.js"></script>
+        <script type="text/javascript" src="javascripts/btapp/pairing.btapp.js"></script>
+        <!-- pwmckenna/jStorage submodule -->
+        <script type="text/javascript" src="javascripts/jStorage/jstorage.min.js"></script>
 
 
-		<script type="text/javascript" src="javascripts/application.js"></script>
+        <script type="text/javascript" src="javascripts/application.js"></script>
 
-		<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="stylesheets/application.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/application.css" />
+        <link rel="stylesheet" type="text/css" href="stylesheets/settings.css" />
 
-  		<title>uToolbox</title>
-	</head>
-	<body>
-	</body>
+        <title>uToolbox</title>
+    </head>
+    <body>
+
+        <div class="columns">
+            <div class="col first">
+                <div id="settings">
+                    <div class="content">
+                        <div class="options">
+                            <h3 class="title" data-title="Options">
+                                <span class="go_back"><em></em>Options</span>
+                                <span class="text">Options</span>
+                            </h3>
+                            
+                            <div class="settings_content">
+                                <div id="top_settings">
+                                    <div id="menu_settings">
+                                        <ul>
+                                            <li><a href="#" class="parent" data-content="general">General</a></li>
+                                            <li><a href="#" class="parent" data-content="ui_settings">UI Settings</a></li>
+                                            <li><a href="#" class="parent" data-content="directories">Directories</a></li>
+                                            <li><a href="#" class="parent" data-content="connection">Connection</a></li>
+                                            <li><a href="#" class="parent" data-content="bandwidth">Bandwidth</a></li>
+                                            <li><a href="#" class="parent" data-content="bittorrent">BitTorrent</a></li>
+                                            <li><a href="#" class="parent" data-content="transfer_cap">Transfer Cap</a></li>
+                                            <li><a href="#" class="parent" data-content="queuing">Queuing</a></li>
+                                            <li><a href="#" class="parent" data-content="scheduler">Scheduler</a></li>
+                                            <li><a href="#" class="parent" data-content="web_ui">Web UI</a></li>
+                                        </ul>
+                                        
+                                        <h3 class="sub">Advanced</h3>
+                                        <ul>
+                                            <!-- <li><a href="#" class="parent" data-content="advanced_general">Advanced</a></li> -->
+                                            <li><a href="#" class="parent" data-content="ui_extras">UI Extras</a></li>
+                                            <li><a href="#" class="parent" data-content="disk_cache">Disk Cache</a></li>
+                                            <li><a href="#" class="parent" data-content="run_program">Run Program</a></li>
+                                        </ul>
+                                        <ul>
+                                            <li><a href="#" class="parent" data-content="about">About <span class="app_version"></span></a></li>                            
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div id="inner_settings">
+                                </div>
+                            </div>
+                            
+                            <div style="clear: left"></div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <div class="col last">
+                <p>List of presets.</p>
+            </div>
+        </div>
+
+        <script type="text/x-handlebar-template" id="tmpl_settings_section">
+            {{#if title}}
+            <h3 class="sub">{{ title }}</h3>
+            {{/if}}
+            <ul>
+            {{#elements}}
+                <li class="control {{#if depends}}sub{{/if}}">
+                {{#if control_checkbox}}
+                    <label for="{{ checkbox_1 }}">{{ label_1 }}</label>
+                    <input type="checkbox" name="{{ checkbox_1 }}" id="{{ checkbox_1 }}" value="true" class="switch" {{#if depends}}data-depends="{{ depends }}"{{/if}} {{#if scope}}data-scope="{{ scope }}"{{/if}}/>
+                {{/if}}
+                {{#if control_checkbox_textbox}}
+                    <label for="{{ checkbox_1 }}">{{ label_1 }}</label>
+                    <input type="checkbox" name="{{ checkbox_1 }}" id="{{ checkbox_1 }}" value="true" class="switch" />
+                    <input type="text" data-depends="{{ checkbox_1 }}" name="{{ textbox_1 }}" id="{{ textbox_1 }}" value="" class="large" />
+                {{/if}}
+                {{#if control_textbox}}
+                    <label for="{{ textbox_1 }}">{{ label_1 }}</label>
+                    <input type="text" name="{{ textbox_1 }}" id="{{ textbox_1 }}" value="" class="" {{#if depends}}data-depends="{{ depends }}"{{/if}} {{#if scope}}data-scope="{{ scope }}"{{/if}} />
+                {{/if}}
+                {{#if control_textbox_large}}
+                    <label for="{{ textbox_1 }}" class="large">{{ label_1 }}</label>
+                    <input type="text" name="{{ textbox_1 }}" id="{{ textbox_1 }}" value="" class="large" {{#if scope}}data-scope="{{ scope }}"{{/if}} />
+                {{/if}}
+                {{#if control_textarea}}
+                    <label for="{{ textarea_1 }}" class="large">{{ label_1 }}</label>
+                    <textarea name="{{ textarea_1 }}" id="{{ textarea_1 }}" value="" class="large" {{#if scope}}data-scope="{{ scope }}"{{/if}} />
+                {{/if}}
+                {{#if control_password}}
+                    <label for="{{ password_1 }}">{{ label_1 }}</label>
+                    <input type="text" name="{{ password_1 }}" id="{{ password_1 }}" value="" class="" {{#if depends}}data-depends="{{ depends }}"{{/if}} />
+                {{/if}}
+                {{#if control_combo}}
+                    <label for="{{ name }}">{{ label_1 }}</label>
+                    {{#combo_1}}
+                    <select name="{{ name }}" id="{{ name }}" data-scope="{{../scope}}" data-depends="{{ ../depends }}">
+                        {{#contents}}
+                        <option value="{{ value }}">{{ label }}</option>
+                        {{/contents}}
+                    </select>
+                    {{/combo_1}}
+                {{/if}}
+                {{#if control_html}}
+                    {{{ html }}}
+                {{/if}}
+                </li>
+            {{/elements}}
+            </ul>
+        </script>
+    </body>
 </html>

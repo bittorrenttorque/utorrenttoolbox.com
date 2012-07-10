@@ -1,0 +1,92 @@
+/* CSS3 Mixins */
+.box_sizing(@args)
+{
+	-webkit-box-sizing: @arguments;
+	-moz-box-sizing: 	@arguments;
+	-ms-box-sizing: 	@arguments;
+	-o-box-sizing: 		@arguments;
+	box-sizing: 		@arguments;
+}
+.rounded(@radius: 5px){
+	-o-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+	-webkit-background-clip: padding-box;
+}
+.box_shadow(@args){
+	-o-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	-ms-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.linear_gradient(@start, @stop){
+	background-image: -webkit-gradient(linear, left top, left bottom, from(@start), to(@stop));
+    background-image: -webkit-linear-gradient(top, @start, @stop);
+	background-image: -moz-linear-gradient(top, @start, @stop);
+	background-image: -ms-linear-gradient(top, @start, @stop);
+	background-image: -o-linear-gradient(top, @start, @stop);
+	background-image: linear-gradient(top, @start, @stop);
+}
+.angled_gradient(@angle, @start, @stop){
+	background-image: -webkit-linear-gradient(@angle, @start, @stop);
+	background-image: -moz-linear-gradient(@angle, @start, @stop);
+	background-image: -ms-linear-gradient(@angle, @start, @stop);
+	background-image: -o-linear-gradient(@angle, @start, @stop);
+	background-image: linear-gradient(@angle, @start, @stop);
+}
+
+.transition(@args){
+	-webkit-transition: @arguments;
+	-moz-transition: @arguments;
+	-o-transition: @arguments;
+	-ms-transition: @arguments;
+	transition: @arguments;
+}
+.transform(@args){
+	-webkit-transform: @arguments;
+	-moz-transform: @arguments;
+	-o-transform: @arguments;
+	-ms-transform: @arguments;
+	transform: @arguments;
+}
+.translate(@x, @y, @z){
+/* 	-webkit-transform: translate3d(@x, @y, @z); */
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.translate_no_hw(@x, @y){
+	-webkit-transform: translate(@x, @y);
+	-moz-transform: translate(@x, @y);
+	-o-transform: translate(@x, @y);
+	-ms-transform: translate(@x, @y);
+	transform: translate(@x, @y);
+}
+.unselectable(){
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+@color_green: #00853F;
+@color_lime: #86C440;
+@color_purple: #639;
+@color_red: #900;
+@color_orange: #f90;
+@color_light_blue: #39f;
+
+@color_bt: @color_purple;
+@color_ut: @color_green;
+
+@alternate_row: #fcfcfc;
+
+@sidebar_width: 250px;
+@sidebar_footer_height: 35px;
+@controls_height: 45px;
+/* !CSS */
