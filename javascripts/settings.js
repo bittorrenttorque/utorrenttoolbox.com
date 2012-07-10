@@ -321,7 +321,23 @@
     {
         window.settings = new Settings();
         window.settingsview = new SettingsView({model: settings});
-    })
+
+        $('.js-use-it').live('click', function(e)
+        {
+            e.preventDefault();
+
+            var parent = $(this).closest('li');
+
+            _.each(parent.data('config'), function(value, key) {
+                if(key === 'id') return;
+                var obj = {};
+                obj[key] = value;
+                console.log('setting ' + key + '->' + value);
+                window.settings.btapp.get('settings').save(obj);
+            });
+        });
+
+    });
 
     window.options_map = {
         'general': {
