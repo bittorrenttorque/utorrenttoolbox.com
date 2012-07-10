@@ -411,6 +411,16 @@ body {
   padding-top: 60px;
   background: #3a3a3a url(../img/bg.png);
 }
+form.well {
+  padding: 10px;
+}
+form.well .control-group {
+  margin-bottom: 10px;
+}
+form.well .form-actions {
+  margin-top: 10px;
+  margin-bottom: 0;
+}
 .container {
   max-width: 940px;
 }
