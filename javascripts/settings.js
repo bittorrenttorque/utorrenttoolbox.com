@@ -1,12 +1,32 @@
 (function(Backbone, $)
 {
-
     // !Settings
     window.Settings = {
 
         initialize: function()
         {
+            var _this = this;
+            
+            this.startTemplates();
+
             this.element = $('#settings');
+            this.top_menu = this.element.find('#menu_settings');
+            this.child_menu = this.element.find('#inner_settings');
+            this.title = this.element.find('.title');
+            this.title_text = this.element.find('.title .text');
+
+            this.top_menu.on('click', 'a', function(e)
+            {
+                e.preventDefault();
+                _this.setCurrent($(this).data('content'), $(this).text());
+            });
+
+            this.element.on('click', '.go_back', function(e)
+            {
+                e.preventDefault();
+
+                _this.returnMenu();
+            })
         },
 
         startTemplates: function()
@@ -19,19 +39,38 @@
             }
         },
 
-        setCurrrent: function()
+        returnMenu: function()
+        {
+            this.element.find('.settings_content').removeClass('done');
+            this.element.removeClass('sub');
+
+            // this.cleaner_timeout = setTimeout(function(){ self.inner_menu_element.html('') }, 300);
+            this.title_text.text(this.title.data('title'));
+        },
+
+        setCurrent: function(section, title)
         {
             var html = '';
             var _this = this;
 
-            _.each(window.options_map[me.data('content')].contents, function(item)
+            _.each(window.options_map[section].contents, function(item)
             {
                 html += _this.templates.section(item);
             });
 
-            this.element.html(html)
+            this.title_text.text(title);
+
+            this.child_menu.html(html);
+            this.element.addClass('sub');
         }
     }
+
+    // window.Settings = Settings();
+
+    $(function()
+    {
+        Settings.initialize();
+    })
 
     window.options_map = {
         'general': {
@@ -902,8 +941,7 @@ checked = 8, error = 16, paused = 32, auto = 64, loaded = 128</p>'
                             html: '<p>\
 Copyright &copy; ' + (new Date()).getFullYear() + '<br />\
 BitTorrent Inc.<br />\
-All Rights Reserved.</p>\
-<p>Remote Touch UI, Version: ' + app_version + '</p>'
+All Rights Reserved.</p>'
                         },
                         {
                             control_html: 1,
@@ -916,4 +954,4 @@ All Rights Reserved.</p>\
         
     }//End Settings
 
-})(Backbone, $);
+})(Backbone, jQuery);

@@ -1,15 +1,118 @@
 @import 'mixins.less';
 
+ul, ol{
+    list-style: none;
+    li{
+        list-style: none;
+    }
+}
+
 .columns{
     .box_sizing(border-box);
     .col{
         float: left;
+        overflow: auto;
+        position: relative;
         width: 50%;
     }
 }
 
 #settings{
-    position: relative;
+    background: #222;
+    padding: 5px 10px;
+    top: 45px;
+    right: 0;
+    bottom: 0;
+    width: 280px;
+    z-index: 106;
+    overflow: hidden;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    // .translate(300px, 0, 0);
+    .transition(all 0.3s ease-out);
+    
+    .options{
+        
+        h3{
+            margin: -5px -10px 10px;
+            color: #fff;
+            text-shadow: 0 1px 0 #000;
+            font-size: 14px;
+            .rounded(0);
+            
+            &.title{
+                border-bottom: 1px solid #000;
+            }
+            
+            &.sub{
+                background: transparent;
+                text-align: left;
+                margin: 10px 0 5px;
+                font-weight: bold;
+                color: @color_lime;
+                height: auto;
+                line-height: 18px;
+            }
+        }
+        
+        .go_back{
+            margin-left: 5px;
+            float: left;
+            opacity: 0;
+            pointer-events: none;
+            .translate_no_hw(30px, 0);
+        }
+    }
+    
+    .settings_content{
+        width: 580px;
+        margin-left: -291px;
+        .translate_no_hw(291px, 0);
+        
+        .transition(-webkit-transform 0.2s linear);
+        .transition(-moz-transform 0.2s linear);
+        .transition(-ms-transform 0.2s linear);
+        .transition(-o-transform 0.2s linear);
+        .transition(transform 0.2s linear);
+
+        
+        h3:first-child{
+            margin-top: 0;
+        }
+    }
+    
+    #top_settings{
+        margin-right: 10px;
+        margin-bottom: 10px;
+        
+        .transition(opacity 0.3s linear);
+    }
+    
+    #inner_settings{
+        margin-left: 1px;
+        margin-bottom: 10px;
+    }
+    
+    #top_settings,
+    #inner_settings{
+        float: left;
+        width: 280px;
+    }
+    
+    &.sub{
+        .go_back{
+            pointer-events: auto;
+            opacity: 1;
+            .translate_no_hw(0, 0);
+        }
+        
+        #top_settings{
+            opacity: 0;
+        }
+        
+        .settings_content{
+            .translate_no_hw(0, 0);
+        }
+    }
     
     .options{
         

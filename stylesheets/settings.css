@@ -1,5 +1,13 @@
 /* CSS3 Mixins */
-/* !CSS */.columns {
+/* !CSS */ul,
+ol {
+  list-style: none;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+.columns {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -8,10 +16,133 @@
 }
 .columns .col {
   float: left;
+  overflow: auto;
+  position: relative;
   width: 50%;
 }
 #settings {
-  position: relative;
+  background: #222;
+  padding: 5px 10px;
+  top: 45px;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  z-index: 106;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#settings .options h3 {
+  margin: -5px -10px 10px;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  font-size: 14px;
+  -o-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-background-clip: padding-box;
+}
+#settings .options h3.title {
+  border-bottom: 1px solid #000;
+}
+#settings .options h3.sub {
+  background: transparent;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #86c440;
+  height: auto;
+  line-height: 18px;
+}
+#settings .options .go_back {
+  margin-left: 5px;
+  float: left;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(30px, 0);
+  -moz-transform: translate(30px, 0);
+  -o-transform: translate(30px, 0);
+  -ms-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+#settings .settings_content {
+  width: 580px;
+  margin-left: -291px;
+  -webkit-transform: translate(291px, 0);
+  -moz-transform: translate(291px, 0);
+  -o-transform: translate(291px, 0);
+  -ms-transform: translate(291px, 0);
+  transform: translate(291px, 0);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  -moz-transition: -webkit-transform 0.2s linear;
+  -o-transition: -webkit-transform 0.2s linear;
+  -ms-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  -webkit-transition: -moz-transform 0.2s linear;
+  -moz-transition: -moz-transform 0.2s linear;
+  -o-transition: -moz-transform 0.2s linear;
+  -ms-transition: -moz-transform 0.2s linear;
+  transition: -moz-transform 0.2s linear;
+  -webkit-transition: -ms-transform 0.2s linear;
+  -moz-transition: -ms-transform 0.2s linear;
+  -o-transition: -ms-transform 0.2s linear;
+  -ms-transition: -ms-transform 0.2s linear;
+  transition: -ms-transform 0.2s linear;
+  -webkit-transition: -o-transform 0.2s linear;
+  -moz-transition: -o-transform 0.2s linear;
+  -o-transition: -o-transform 0.2s linear;
+  -ms-transition: -o-transform 0.2s linear;
+  transition: -o-transform 0.2s linear;
+  -webkit-transition: transform 0.2s linear;
+  -moz-transition: transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  -ms-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+#settings .settings_content h3:first-child {
+  margin-top: 0;
+}
+#settings #top_settings {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  -ms-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+#settings #inner_settings {
+  margin-left: 1px;
+  margin-bottom: 10px;
+}
+#settings #top_settings,
+#settings #inner_settings {
+  float: left;
+  width: 280px;
+}
+#settings.sub .go_back {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#settings.sub #top_settings {
+  opacity: 0;
+}
+#settings.sub .settings_content {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
 #settings .options h3 {
   font-size: 13px;
