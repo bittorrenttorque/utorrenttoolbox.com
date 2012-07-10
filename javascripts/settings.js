@@ -1,5 +1,21 @@
 (function(Backbone, $)
 {
+    _.mixin({
+        chunk: function(obj, max) {
+            var ret = [];
+            max = max || 10;
+            var num = 0;
+            _.each(obj, function(value, key) {
+                if(num == 0) {
+                    ret.unshift({});
+                }
+                ret[0][key] = value;
+                num = ((num + 1) % max);
+            });
+
+            return ret;
+        }
+    });
     SettingsView = Backbone.View.extend({
         initialize: function() {
             var _this = this;
@@ -214,19 +230,21 @@
                 queries: ['btapp/settings/'],
                 product: 'uTorrent',
                 plugin: false,
-                poll_frequency: 100
+                poll_frequency: 2000
             });
             $('#save-preset .btn-primary').click(_.bind(function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 var name, description, username, blob, tags;
 
-                name = $('#save-present #name').text(); 
-                description = $('#save-present #description').text(); 
-                tags = $('#save-present #tag').text();
-                blob = 'asdfalsdkjf;l';//this.btapp.get('settings').toJSON();
+                name = $('#save-preset #name').val(); 
+                description = $('#save-preset #description').val(); 
+                tags = $('#save-preset #tag').val();
+                blob = this.btapp.get('settings').toJSON();
 
-                console.log(name, description, tags);
+                var blobs = _.chunk(blob);
+                var first = blobs.pop();
+                console.log(first);
                 $.ajax({
                     dataType: 'jsonp',
                     url: 'http://utorrenttoolbox.herokuapp.com/create',
@@ -234,11 +252,26 @@
                         name: name,
                         description: description,
                         username: username,
-                        config: blob,
+                        config: first,
                         tags: tags
                     },
-                    success: function(data) {
-                        alert(data);
+                    success: function(sid) {
+                        _.each(blobs, function(b) {
+                            $.ajax({
+                                dataType: 'jsonp',
+                                url: 'http://utorrenttoolbox.herokuapp.com/add',
+                                data: {
+                                    id: sid,
+                                    config: b
+                                },
+                                success: function(data) {
+                                    console.log('w00t');
+                                },
+                                error: function(data) {
+                                    console.log('fuck');
+                                }
+                            });
+                        });
                     },
                     error: function(data) {
                         alert('fucked');
