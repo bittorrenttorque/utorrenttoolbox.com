@@ -13,7 +13,6 @@
 
 
             this.model.on('change', this.setValues, this);
-            this.model.on('all', _.bind(console.log, console));
 
             this.top_menu.on('click', 'a', function(e)
             {
@@ -217,6 +216,36 @@
                 plugin: false,
                 poll_frequency: 100
             });
+            $('#save-preset .btn-primary').click(_.bind(function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var name, description, username, blob, tags;
+
+                name = $('#save-present #name').text(); 
+                description = $('#save-present #description').text(); 
+                tags = $('#save-present #tag').text();
+                blob = 'asdfalsdkjf;l';//this.btapp.get('settings').toJSON();
+
+                console.log(name, description, tags);
+                $.ajax({
+                    dataType: 'jsonp',
+                    url: 'http://utorrenttoolbox.herokuapp.com/create',
+                    data: {
+                        name: name,
+                        description: description,
+                        username: username,
+                        config: blob,
+                        tags: tags
+                    },
+                    success: function(data) {
+                        alert(data);
+                    },
+                    error: function(data) {
+                        alert('fucked');
+                    }
+                })
+            }, this));
+
             this.btapp.on('add:settings', function(settings) {
                 function processSetting(value, key) {
                     if(typeof value === 'string' && (value === 'true' || value === 'false')) {
