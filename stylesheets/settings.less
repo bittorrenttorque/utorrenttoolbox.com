@@ -30,39 +30,6 @@ ul, ol{
     // .translate(300px, 0, 0);
     .transition(all 0.3s ease-out);
     
-    .options{
-        
-        h3{
-            margin: -5px -10px 10px;
-            color: #fff;
-            text-shadow: 0 1px 0 #000;
-            font-size: 14px;
-            .rounded(0);
-            
-            &.title{
-                border-bottom: 1px solid #000;
-            }
-            
-            &.sub{
-                background: transparent;
-                text-align: left;
-                margin: 10px 0 5px;
-                font-weight: bold;
-                color: @color_lime;
-                height: auto;
-                line-height: 18px;
-            }
-        }
-        
-        .go_back{
-            margin-left: 5px;
-            float: left;
-            opacity: 0;
-            pointer-events: none;
-            .translate_no_hw(30px, 0);
-        }
-    }
-    
     .settings_content{
         width: 580px;
         margin-left: -291px;
@@ -96,22 +63,6 @@ ul, ol{
     #inner_settings{
         float: left;
         width: 280px;
-    }
-    
-    &.sub{
-        .go_back{
-            pointer-events: auto;
-            opacity: 1;
-            .translate_no_hw(0, 0);
-        }
-        
-        #top_settings{
-            opacity: 0;
-        }
-        
-        .settings_content{
-            .translate_no_hw(0, 0);
-        }
     }
     
     .options{
@@ -435,6 +386,39 @@ ul, ol{
         }
     }
 
+    .options{
+        
+        h3{
+            margin: -5px -10px 10px;
+            color: #fff;
+            text-shadow: 0 1px 0 #000;
+            font-size: 14px;
+            .rounded(0);
+            
+            &.title{
+                border-bottom: 1px solid #000;
+            }
+            
+            &.sub{
+                background: transparent;
+                text-align: left;
+                margin: 10px 0 5px;
+                font-weight: bold;
+                color: @color_lime;
+                height: auto;
+                line-height: 18px;
+            }
+        }
+        
+        .go_back{
+            margin-left: 5px;
+            float: left;
+            opacity: 0;
+            pointer-events: none;
+            .translate_no_hw(30px, 0);
+        }
+    }
+
     &.open{
         & > a{
             background: #222;
@@ -444,6 +428,22 @@ ul, ol{
         .options{
             opacity: 1;
             pointer-events: auto;
+        }
+    }
+
+    &.sub{
+        .go_back{
+            pointer-events: auto;
+            opacity: 1;
+            .translate_no_hw(0, 0);
+        }
+        
+        #top_settings{
+            opacity: 0;
+        }
+        
+        .settings_content{
+            .translate_no_hw(0, 0);
         }
     }
 }

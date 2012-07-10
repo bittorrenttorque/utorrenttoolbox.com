@@ -36,40 +36,6 @@ ol li {
   -ms-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
 }
-#settings .options h3 {
-  margin: -5px -10px 10px;
-  color: #fff;
-  text-shadow: 0 1px 0 #000;
-  font-size: 14px;
-  -o-border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
-  -webkit-background-clip: padding-box;
-}
-#settings .options h3.title {
-  border-bottom: 1px solid #000;
-}
-#settings .options h3.sub {
-  background: transparent;
-  text-align: left;
-  margin: 10px 0 5px;
-  font-weight: bold;
-  color: #86c440;
-  height: auto;
-  line-height: 18px;
-}
-#settings .options .go_back {
-  margin-left: 5px;
-  float: left;
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transform: translate(30px, 0);
-  -moz-transform: translate(30px, 0);
-  -o-transform: translate(30px, 0);
-  -ms-transform: translate(30px, 0);
-  transform: translate(30px, 0);
-}
 #settings .settings_content {
   width: 580px;
   margin-left: -291px;
@@ -124,25 +90,6 @@ ol li {
 #settings #inner_settings {
   float: left;
   width: 280px;
-}
-#settings.sub .go_back {
-  pointer-events: auto;
-  opacity: 1;
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-#settings.sub #top_settings {
-  opacity: 0;
-}
-#settings.sub .settings_content {
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
 }
 #settings .options h3 {
   font-size: 13px;
@@ -544,6 +491,40 @@ ol li {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
 }
+#settings .options h3 {
+  margin: -5px -10px 10px;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  font-size: 14px;
+  -o-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-background-clip: padding-box;
+}
+#settings .options h3.title {
+  border-bottom: 1px solid #000;
+}
+#settings .options h3.sub {
+  background: transparent;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #86c440;
+  height: auto;
+  line-height: 18px;
+}
+#settings .options .go_back {
+  margin-left: 5px;
+  float: left;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(30px, 0);
+  -moz-transform: translate(30px, 0);
+  -o-transform: translate(30px, 0);
+  -ms-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
 #settings.open  > a {
   background: #222;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(255, 255, 255, 0)));
@@ -556,4 +537,23 @@ ol li {
 #settings.open .options {
   opacity: 1;
   pointer-events: auto;
+}
+#settings.sub .go_back {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#settings.sub #top_settings {
+  opacity: 0;
+}
+#settings.sub .settings_content {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
