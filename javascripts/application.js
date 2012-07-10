@@ -20,8 +20,7 @@ $(function()
     $('.js-cancel-save').live('click', function(e)
     {
         e.preventDefault();
-        $('#save-preset').addClass('hidden');
-        $('#save-preset form').reset();
+        $('#save-preset').slideUp(300, function(){ $(this).addClass('hidden'); $('#save-preset form')[0].reset(); });
     });
 });
 

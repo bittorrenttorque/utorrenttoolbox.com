@@ -132,7 +132,7 @@
         },
         valueChanged: function(e) {
 
-            $('#save-preset').removeClass('hidden');
+            $('#save-preset').slideDown(300, function(){ $(this).removeClass('hidden') });
 
             var me = $(e.currentTarget);
             var prop = me.attr('name');
