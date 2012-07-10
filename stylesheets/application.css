@@ -427,6 +427,9 @@ form.well .form-actions {
 #tags {
   text-align: center;
 }
+#tags a:hover {
+  text-decoration: none;
+}
 .navbar .brand {
   color: #fff;
 }
@@ -890,6 +893,9 @@ ol li {
   background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
   background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+}
+#settings .options a:hover {
+  text-decoration: none;
 }
 #settings .options a.parent {
   position: relative;

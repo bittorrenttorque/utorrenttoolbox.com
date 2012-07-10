@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>&micro;Toolbox</title>
+        <title>&micro;Torrent Toolbox</title>
         <!-- collection of general dependencies -->
         <script type="text/javascript" src="javascripts/lib/jquery.js"></script>
         <script type="text/javascript" src="javascripts/lib/json2.js"></script>
@@ -158,54 +158,29 @@
                 </form>
 
                 <br>
-                <ul class="thumbnails">
-                    <li class="span12">
-                        <div class="thumbnail">
-                            <div class="caption">
-                                <h3>Preset name</h3>
-                                <p>Concise description of the preset.</p>
-                                <p>
-                                    <a href="#" class="btn btn-primary">Use it</a>
-                                    <a href="#" class="btn">Pin it</a>
-                                </p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+
+                <div id="list-presets">
+                    
+                </div>
             </div>
         </div>
     </div>
+
         <script type="text/x-handlebar-template" id="tmpl_preset">
             <ul class="thumbnails">
             {{#presets}}
-                <li class="span12">
+                <li class="span12" data-config="{{ config }}">
                     <div class="thumbnail">
                         <div class="caption">
                             <h3>{{ name }}</h3>
                             <p>{{ description }}</p>
-                            <p>Filed in: {{ category }}</p>
+                            <p>Filed in: {{ tags }}</p>
                             <hr />
                             <p>
                                 <a href="#" class="btn btn-primary">Use it</a>
                                 <a href="#" class="btn">Pin it</a>
                             </p>
                         </div>
-                    </div>
-                </li>
-            {{/presets}}
-            </ul>
-            <ul>
-            {{#presets}}
-                <li>
-                    <h3>{{ name }}</h3>
-                    <div class="body">
-                        <p>{{ description }}</p>
-                        <p>Filed in: {{ category }}</p>
-                        <hr />
-                        <ul class="controls">
-                            <li><a href="">Use it</li>
-                            <li>Favorite</li>
-                        </ul>
                     </div>
                 </li>
             {{/presets}}
