@@ -409,7 +409,7 @@ pre {
 }
 body {
   padding-top: 60px;
-  background: url(../images/bg.png);
+  background: #3a3a3a url(../images/bg.png);
 }
 .navbar .brand {
   color: #fff;
