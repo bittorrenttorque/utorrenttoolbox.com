@@ -1,14 +1,8 @@
 (function(Backbone, $)
 {
-    // !Settings
-    window.Settings = {
-
-        initialize: function()
-        {
+    SettingsView = Backbone.View.extend({
+        initialize: function() {
             var _this = this;
-            this.settings = {};
-            this.loadAll();
-
             this.startTemplates();
 
             this.element = $('#settings');
@@ -31,9 +25,8 @@
                 e.preventDefault();
 
                 _this.returnMenu();
-            })
+            });
         },
-
         startTemplates: function()
         {
             if(!this.templates)
@@ -68,96 +61,13 @@
             this.child_menu.html(html);
             this.element.addClass('sub');
         },
-        valueChanged: function(e) {
-            var me = $(e.currentTarget);
-            var prop = me.attr('name');
-            
-            if(me.data('scope') == 'local')
-            {
-                switch(me.attr('name'))
-                {
-                    case 'multi_day_transfer_mode':
-                        var props, values;
-                        props = ['multi_day_transfer_mode_ul', 'multi_day_transfer_mode_dl', 'multi_day_transfer_mode_uldl'];
-                        values = [(me.val() == '0' ? 1 : 0), (me.val() == '1' ? 1 : 0), (me.val() == '2' ? 1 : 0)];
-                        
-                        for(var i = 0; i < props.length; i++)
-                            this.settings[props[i]].value = values[i];
-                        
-                        this.setSettings(props, values);
-                        break;
-                    
-                    case 'use_compact':
-                        var checked = me.is(':checked');
-                        localStorage.setItem('use_compact', '' + checked);
-                        $('#torrents').toggleClass('compact', checked);
-                        
-                        break;
-                }
-                
-                if(me.attr('name').indexOf('webui.') >= 0)
-                {
-                    var webui_s = JSON.parse(this.settings['webui.cookie'].value);
-                    
-                    var name = me.attr('name');
-                    name = name.replace('webui._cookie.', '');
-                    
-                    if(me.is(':checkbox'))
-                        webui_s[name] = me.is(':checked');
-                    else
-                        webui_s[name] = me.val();
-                    
-                    this.settings['webui._cookie.' + name].value = '' + webui_s[name];
-                    this.settings['webui.cookie'].value = JSON.stringify(webui_s);
-                    this.setSettings('webui.cookie', this.settings['webui.cookie'].value);
-                }
-                return;
-            }
-            
-            if(me.is(':checkbox'))
-            {
-                value = me.is(':checked') ? true : false;
-                
-                me.find('[data-depends="' + me.attr('id') + '"]').prop('disabled', !value);
-                
-                if(this.settings[prop])
-                    this.settings[prop].value = '' + !!value;
-            }else{
-                value = me.val();
-                
-                if(this.settings[prop])
-                    this.settings[prop].value = value;
-            }
-            
-            if(this.settings[prop])
-            {
-                this.setSettings(prop, value);
-            }
-        },
-        setSetting: function(s, v) {
-            console.log('setSetting(' + s + ',' + v + ')');
-            var attr = {};
-            attr[s] = v;
-            this.btapp.get('settings').save(attr);
-        },
-        setSettings: function(s, v)
-        {
-            if(!_.isArray(s)) {
-                this.setSetting(s, v);
-            } else {
-                for(var i = 0; i < s.length; i++)
-                {
-                    this.setSetting(s[i], v[i]);
-                }
-            }
-        },
         setValues: function()
         {
             var self = this;
             $('select, input, textarea', this.child_menu).each(function()
             {
                 var el = $(this);
-                var s = self.settings[el.attr('name')];
+                var s = self.model.get(el.attr('name'));
                 
                 if(el.data('scope') == 'local' && !s)
                 {
@@ -170,9 +80,9 @@
                         case 'multi_day_transfer_mode':
                             var value;
                             
-                            if(self.settings.multi_day_transfer_mode_uldl.value == 'true')
+                            if(self.model.get('multi_day_transfer_mode_uldl').value == 'true')
                                 value = '2';
-                            else if(self.settings.multi_day_transfer_mode_dl.value == 'true')
+                            else if(self.model.get('multi_day_transfer_mode_dl').value == 'true')
                                 value = '1';
                             else
                                 value = '0';
@@ -202,6 +112,98 @@
                 }
             });
         },
+        valueChanged: function(e) {
+            var me = $(e.currentTarget);
+            var prop = me.attr('name');
+            
+            if(me.data('scope') == 'local')
+            {
+                switch(me.attr('name'))
+                {
+                    case 'multi_day_transfer_mode':
+                        var props, values;
+                        props = ['multi_day_transfer_mode_ul', 'multi_day_transfer_mode_dl', 'multi_day_transfer_mode_uldl'];
+                        values = [(me.val() == '0' ? 1 : 0), (me.val() == '1' ? 1 : 0), (me.val() == '2' ? 1 : 0)];
+                        
+                        for(var i = 0; i < props.length; i++)
+                            this.model.get(props[i]).value = values[i];
+                        
+                        this.setSettings(props, values);
+                        break;
+                    
+                    case 'use_compact':
+                        var checked = me.is(':checked');
+                        localStorage.setItem('use_compact', '' + checked);
+                        $('#torrents').toggleClass('compact', checked);
+                        
+                        break;
+                }
+                
+                if(me.attr('name').indexOf('webui.') >= 0)
+                {
+                    var webui_s = JSON.parse(this.settings['webui.cookie'].value);
+                    
+                    var name = me.attr('name');
+                    name = name.replace('webui._cookie.', '');
+                    
+                    if(me.is(':checkbox'))
+                        webui_s[name] = me.is(':checked');
+                    else
+                        webui_s[name] = me.val();
+                    
+                    this.model.get('webui._cookie.' + name).value = '' + webui_s[name];
+                    this.model.get('webui.cookie').value = JSON.stringify(webui_s);
+                    this.setSettings('webui.cookie', this.model.get('webui.cookie').value);
+                }
+                return;
+            }
+            
+            if(me.is(':checkbox'))
+            {
+                value = me.is(':checked') ? true : false;
+                
+                me.find('[data-depends="' + me.attr('id') + '"]').prop('disabled', !value);
+                
+                if(this.model.has(prop))
+                    this.model.get(prop).value = '' + !!value;
+            }else{
+                value = me.val();
+                
+                if(this.model.has(prop))
+                    this.model.get(prop).value = value;
+            }
+            
+            if(this.model.has(prop))
+            {
+                this.model.setSettings(prop, value);
+            }
+        }
+     });
+    // !Settings
+    Settings = Backbone.Model.extend({
+        initialize: function()
+        {
+            var _this = this;
+            this.loadAll();
+        },
+
+       setSetting: function(s, v) {
+            console.log('setSetting(' + s + ',' + v + ')');
+            var attr = {};
+            attr[s] = v;
+            this.btapp.get('settings').save(attr);
+        },
+        setSettings: function(s, v)
+        {
+            if(!_.isArray(s)) {
+                this.setSetting(s, v);
+            } else {
+                for(var i = 0; i < s.length; i++)
+                {
+                    this.setSetting(s[i], v[i]);
+                }
+            }
+        },
         loadAll: function()
         {
             this.first_load = true;
@@ -215,21 +217,21 @@
                     if(typeof value === 'string' && (value === 'true' || value === 'false')) {
                         value = (value === 'true' ? true : false);
                     }
-                    this.settings[key] = {
+                    this.set(key, {
                         type: typeof value,
                         value: value
-                    };
+                    });
                     if(key == 'webui.cookie')
                     {
                         var parsed = JSON.parse(value);
                         _.each(parsed, function(val, key)
                         {
-                            this.settings['webui._cookie.' + key] = {
+                            this.set('webui._cookie.' + key, {
                                 type: !isNaN(val) ? 0 : (val == 'true' && val == 'false' ? 1 : 2),
                                 value: '' + val
-                            };
+                            });
                         });
-                    }
+                    };
                 }
                 function processSettings(settings) {
                     _.each(settings, processSetting, this);
@@ -240,13 +242,14 @@
                 }, this);
             }, this);
         }
-    }
+    });
 
     // window.Settings = Settings();
 
     $(function()
     {
-        Settings.initialize();
+        window.settings = new Settings();
+        window.settingsview = new SettingsView({model: settings});
     })
 
     window.options_map = {
