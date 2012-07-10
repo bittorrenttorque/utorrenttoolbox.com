@@ -343,7 +343,7 @@
                         },
                         {
                             control_checkbox: true,
-                            label_1: 'Cofirm when deleting trackers',
+                            label_1: 'Confirm when deleting trackers',
                             checkbox_1: 'confirm_remove_tracker'
                         },
                         {

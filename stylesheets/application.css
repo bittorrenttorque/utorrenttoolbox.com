@@ -448,7 +448,6 @@ ol li {
   width: 50%;
 }
 #settings {
-  background: #222;
   padding: 5px 10px;
   width: 280px;
   z-index: 106;
@@ -550,7 +549,7 @@ ol li {
   background: #fff;
   position: absolute;
   left: 10px;
-  top: 2px;
+  top: 3px;
   border: 1px solid #aaa;
   color: #666;
   text-shadow: 0 1px 0 #fff;
@@ -922,10 +921,10 @@ ol li {
   color: #fff;
   text-shadow: 0 1px 0 #000;
   font-size: 14px;
-  -o-border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  border-radius: 0;
+  -o-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
   -webkit-background-clip: padding-box;
 }
 #settings .options h3.title {
