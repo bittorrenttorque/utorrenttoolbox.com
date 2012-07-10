@@ -411,6 +411,9 @@ body {
   padding-top: 60px;
   background: #3a3a3a url(../images/bg.png);
 }
+#tags {
+  text-align: center;
+}
 .navbar .brand {
   color: #fff;
 }
@@ -745,7 +748,11 @@ ol li {
 #settings .options li.control input[type="text"]:focus,
 #settings .options li.control textarea:focus {
   outline: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #05C;
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #1489c9;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #1489c9;
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #1489c9;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #1489c9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #1489c9;
 }
 #settings .options li.control [disabled] {
   opacity: 0.5;
@@ -869,6 +876,7 @@ ol li {
 #settings .options a {
   display: block;
   border: 0;
+  color: #1489c9 !important;
   height: 35px;
   line-height: 35px;
   text-shadow: 0 1px 0 #fff;
@@ -930,6 +938,7 @@ ol li {
   text-align: left;
   margin: 10px 0 5px;
   font-weight: bold;
+  color: #1489c9;
   height: auto;
   line-height: 18px;
 }
@@ -975,7 +984,4 @@ ol li {
   -o-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
-}
-#tags {
-  text-align: center;
 }
