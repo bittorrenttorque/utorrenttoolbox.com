@@ -122,6 +122,24 @@
         </div>
     </div>
         <script type="text/x-handlebar-template" id="tmpl_preset">
+            <ul class="thumbnails">
+            {{#presets}}
+                <li class="span12">
+                    <div class="thumbnail">
+                        <div class="caption">
+                            <h3>{{ name }}</h3>
+                            <p>{{ description }}</p>
+                            <p>Filed in: {{ category }}</p>
+                            <hr />
+                            <p>
+                                <a href="#" class="btn btn-primary">Use it</a>
+                                <a href="#" class="btn">Pin it</a>
+                            </p>
+                        </div>
+                    </div>
+                </li>
+            {{/presets}}
+            </ul>
             <ul>
             {{#presets}}
                 <li>
