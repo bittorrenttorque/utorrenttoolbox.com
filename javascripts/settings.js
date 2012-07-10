@@ -131,6 +131,9 @@
             });
         },
         valueChanged: function(e) {
+
+            $('#save-preset').removeClass('hidden');
+
             var me = $(e.currentTarget);
             var prop = me.attr('name');
             
