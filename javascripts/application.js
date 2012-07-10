@@ -20,6 +20,8 @@ $(function()
                 html += pinned_template($.jStorage.get(key));
         });
 
+        $('#pinned-container').toggleClass('hidden', html.length <= 0);
+
         pinned.html(html);
     }
 
