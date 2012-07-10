@@ -388,16 +388,6 @@
         'ui_settings': {
             name: 'UI Settings',
             contents: {
-                'display_local': {
-                    elements: [
-                        {
-                            control_checkbox: true,
-                            label_1: 'Compact View',
-                            checkbox_1: 'use_compact',
-                            scope: 'local'
-                        }
-                    ]
-                },
                 'display_options': {
                     title: 'Display Options',
                     elements: [
