@@ -409,7 +409,7 @@ pre {
 }
 body {
   padding-top: 60px;
-  background: #3a3a3a url(../images/bg.png);
+  background: #3a3a3a url(../img/bg.png);
 }
 #tags {
   text-align: center;
@@ -436,19 +436,6 @@ ol {
 ul li,
 ol li {
   list-style: none;
-}
-.columns {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.columns .col {
-  float: left;
-  overflow: auto;
-  position: relative;
-  width: 50%;
 }
 #settings {
   padding: 5px 10px;
