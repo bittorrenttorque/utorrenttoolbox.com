@@ -27,7 +27,7 @@ $(function()
 
     $.ajax({
         dataType: 'jsonp',
-        url: 'http://10.10.200.121:3000/list',
+        url: 'http://utorrenttoolbox.herokuapp.com/list',
         success: function(data)
         {
             data = { presets: data };
