@@ -453,6 +453,9 @@ ul li,
 ol li {
   list-style: none;
 }
+#list-presets .span12 {
+  margin-left: 0;
+}
 #settings {
   padding: 5px 10px;
   width: 280px;
