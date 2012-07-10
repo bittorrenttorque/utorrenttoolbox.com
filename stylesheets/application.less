@@ -1,7 +1,10 @@
 @import 'bootstrap.css';
 
+@import 'darkstrap.less';
+
 body{
 	padding-top: 60px;
+	background: url(../images/bg.png);
 }
 
 .navbar{
@@ -17,6 +20,12 @@ body{
 
 ul {
 	margin: 0px;
+}
+
+@media (max-width: 980px) {
+	body{
+		padding-top: 0;
+	}
 }
 
 @import 'settings.less';
