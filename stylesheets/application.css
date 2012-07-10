@@ -745,11 +745,7 @@ ol li {
 #settings .options li.control input[type="text"]:focus,
 #settings .options li.control textarea:focus {
   outline: none;
-  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
-  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
-  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #05C;
 }
 #settings .options li.control [disabled] {
   opacity: 0.5;
@@ -873,7 +869,6 @@ ol li {
 #settings .options a {
   display: block;
   border: 0;
-  color: #00853f !important;
   height: 35px;
   line-height: 35px;
   text-shadow: 0 1px 0 #fff;
@@ -935,7 +930,6 @@ ol li {
   text-align: left;
   margin: 10px 0 5px;
   font-weight: bold;
-  color: #86c440;
   height: auto;
   line-height: 18px;
 }
@@ -981,4 +975,7 @@ ol li {
   -o-transform: translate(0, 0);
   -ms-transform: translate(0, 0);
   transform: translate(0, 0);
+}
+#tags {
+  text-align: center;
 }
