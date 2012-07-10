@@ -11,6 +11,10 @@
             this.title = this.element.find('.title');
             this.title_text = this.element.find('.title .text');
 
+
+            this.model.on('change', this.setValues, this);
+            this.model.on('all', _.bind(console.log, console));
+
             this.top_menu.on('click', 'a', function(e)
             {
                 e.preventDefault();
@@ -23,7 +27,6 @@
             this.element.on('click', '.go_back', function(e)
             {
                 e.preventDefault();
-
                 _this.returnMenu();
             });
         },
@@ -210,6 +213,8 @@
             this.btapp = new Btapp();
             this.btapp.connect({
                 queries: ['btapp/settings/'],
+                product: 'uTorrent',
+                plugin: false,
                 poll_frequency: 100
             });
             this.btapp.on('add:settings', function(settings) {
