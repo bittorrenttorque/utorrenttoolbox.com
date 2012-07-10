@@ -1,3 +1,575 @@
+@import 'bootstrap.css';
+
+@import 'bootstrap-responsive.css';
+body {
+  padding-top: 60px;
+}
+.navbar .brand {
+  color: #fff;
+}
+.navbar .toolbox {
+  font-family: 'Handlee', cursive;
+}
 ul {
-	margin: 0px;
+  margin: 0px;
+}
+/* CSS3 Mixins */
+/* !CSS */ul,
+ol {
+  list-style: none;
+}
+ul li,
+ol li {
+  list-style: none;
+}
+.columns {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.columns .col {
+  float: left;
+  overflow: auto;
+  position: relative;
+  width: 50%;
+}
+#settings {
+  background: #222;
+  padding: 5px 10px;
+  top: 45px;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  z-index: 106;
+  overflow: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#settings .settings_content {
+  width: 580px;
+  margin-left: -291px;
+  -webkit-transform: translate(291px, 0);
+  -moz-transform: translate(291px, 0);
+  -o-transform: translate(291px, 0);
+  -ms-transform: translate(291px, 0);
+  transform: translate(291px, 0);
+  -webkit-transition: -webkit-transform 0.2s linear;
+  -moz-transition: -webkit-transform 0.2s linear;
+  -o-transition: -webkit-transform 0.2s linear;
+  -ms-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  -webkit-transition: -moz-transform 0.2s linear;
+  -moz-transition: -moz-transform 0.2s linear;
+  -o-transition: -moz-transform 0.2s linear;
+  -ms-transition: -moz-transform 0.2s linear;
+  transition: -moz-transform 0.2s linear;
+  -webkit-transition: -ms-transform 0.2s linear;
+  -moz-transition: -ms-transform 0.2s linear;
+  -o-transition: -ms-transform 0.2s linear;
+  -ms-transition: -ms-transform 0.2s linear;
+  transition: -ms-transform 0.2s linear;
+  -webkit-transition: -o-transform 0.2s linear;
+  -moz-transition: -o-transform 0.2s linear;
+  -o-transition: -o-transform 0.2s linear;
+  -ms-transition: -o-transform 0.2s linear;
+  transition: -o-transform 0.2s linear;
+  -webkit-transition: transform 0.2s linear;
+  -moz-transition: transform 0.2s linear;
+  -o-transition: transform 0.2s linear;
+  -ms-transition: transform 0.2s linear;
+  transition: transform 0.2s linear;
+}
+#settings .settings_content h3:first-child {
+  margin-top: 0;
+}
+#settings #top_settings {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  -webkit-transition: opacity 0.3s linear;
+  -moz-transition: opacity 0.3s linear;
+  -o-transition: opacity 0.3s linear;
+  -ms-transition: opacity 0.3s linear;
+  transition: opacity 0.3s linear;
+}
+#settings #inner_settings {
+  margin-left: 1px;
+  margin-bottom: 10px;
+}
+#settings #top_settings,
+#settings #inner_settings {
+  float: left;
+  width: 280px;
+}
+#settings .options h3 {
+  font-size: 13px;
+  line-height: 28px;
+  height: 30px;
+  color: #666;
+  margin: 1px 0 5px;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  background: #000;
+  color: #fff;
+  text-shadow: 0 -1px 0 #000000;
+  margin: -5px -5px 5px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.4)), color-stop(50%, rgba(255, 255, 255, 0.2)), color-stop(50.1%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50.1%);
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50.1%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50.1%);
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50.1%);
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50.1%);
+  -o-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  -webkit-background-clip: padding-box;
+}
+#settings .options .go_back {
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: bold;
+  height: 22px;
+  line-height: 22px;
+  padding: 0 8px 0 5px;
+  background: #fff;
+  position: absolute;
+  left: 10px;
+  top: 2px;
+  border: 1px solid #aaa;
+  color: #666;
+  text-shadow: 0 1px 0 #fff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  -o-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -ms-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+  -webkit-transition: opacity 0.2s ease-out, -webkit-transform 0.2s ease-out;
+  -moz-transition: opacity 0.2s ease-out, -moz-transform 0.2s ease-out;
+  -ms-transition: opacity 0.2s ease-out, -ms-transform 0.2s ease-out;
+  -o-transition: opacity 0.2s ease-out, -o-transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+#settings .options .go_back.hidden {
+  display: block !important;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(30px, 0);
+  -moz-transform: translate(30px, 0);
+  -o-transform: translate(30px, 0);
+  -ms-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+#settings .options .go_back em {
+  position: absolute;
+  left: -11px;
+  display: block;
+  top: 0;
+  content: '';
+  width: 14px;
+  height: 22px;
+  overflow: hidden;
+  -webkit-transform: scalex(0.85);
+  -moz-transform: scalex(0.85);
+  -o-transform: scalex(0.85);
+  -ms-transform: scalex(0.85);
+  transform: scalex(0.85);
+}
+#settings .options .go_back em:after {
+  position: absolute;
+  content: '';
+  top: 2px;
+  left: 4px;
+  background: #fff;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #aaa;
+  -o-border-radius: 0 0 0 3px;
+  -moz-border-radius: 0 0 0 3px;
+  -webkit-border-radius: 0 0 0 3px;
+  border-radius: 0 0 0 3px;
+  -webkit-background-clip: padding-box;
+  background-image: -webkit-linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -moz-linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -ms-linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -o-linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(-45deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -o-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -ms-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset;
+}
+#settings .options .go_back:active {
+  border-color: #666;
+  background-color: #ccc;
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+  -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35) inset;
+}
+#settings .options .go_back:active em:after {
+  border-color: #666;
+  background-color: #ccc;
+  -o-box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35) inset;
+  -moz-box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35) inset;
+  -ms-box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35) inset;
+  -webkit-box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.35) inset;
+}
+#settings .options ul {
+  position: relative;
+  z-index: 99;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #aaa;
+  -o-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(255, 255, 255, 0.5);
+  -ms-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(255, 255, 255, 0.5);
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px rgba(255, 255, 255, 0.5);
+  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+}
+#settings .options ul  + ul {
+  margin-top: 10px !important;
+}
+#settings .options li {
+  float: none !important;
+  padding: 0;
+  min-height: 35px;
+  line-height: 35px;
+  font-size: 13px;
+  overflow: auto;
+  border-bottom: 1px solid #ddd;
+}
+#settings .options li:first-child {
+  -o-border-radius: 3px 3px 0 0;
+  -moz-border-radius: 3px 3px 0 0;
+  -webkit-border-radius: 3px 3px 0 0;
+  border-radius: 3px 3px 0 0;
+  -webkit-background-clip: padding-box;
+}
+#settings .options li:last-child {
+  -o-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  -webkit-background-clip: padding-box;
+  border: 0;
+}
+#settings .options li.sub {
+  border-left: 5px solid #ccc;
+}
+#settings .options li.control {
+  padding: 0 10px;
+}
+#settings .options li.control label {
+  font-size: 12px;
+  font-weight: bold;
+  color: #666;
+  margin: 10px 0 10px;
+  float: left;
+  max-width: 70%;
+  line-height: 15px;
+}
+#settings .options li.control label.large {
+  max-width: 100%;
+}
+#settings .options li.control input[type="text"],
+#settings .options li.control textarea {
+  height: 23px;
+  border: 0;
+  float: right;
+  margin: 5px -5px 0 0;
+  -webkit-appearance: none;
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px #999999;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px #999999;
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px #999999;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px #999999;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25) inset, 0 0 0 1px #999999;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.05)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0));
+  -o-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-background-clip: padding-box;
+}
+#settings .options li.control input[type="text"]:focus,
+#settings .options li.control textarea:focus {
+  outline: none;
+  -o-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+  -ms-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.45) inset, 0 0 0 2px #86c440;
+}
+#settings .options li.control [disabled] {
+  opacity: 0.5;
+}
+#settings .options li.control p {
+  line-height: 13px;
+  margin: 10px 0;
+  font-size: 11px;
+}
+#settings .options li.control p a {
+  display: inline;
+  background: none;
+  height: auto;
+  line-height: 13px;
+  padding: 0;
+}
+#settings .options li.control p a:active {
+  background: none;
+  -o-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+#settings .options li.control textarea {
+  height: 60px;
+}
+#settings .options li.control input.number {
+  text-align: right;
+}
+#settings .options li.control label + input[type="text"] {
+  width: 70px;
+}
+#settings .options li.control textarea,
+#settings .options li.control input.large {
+  clear: both;
+  margin: 2px -4px 7px 0;
+  width: 90% !important;
+}
+#settings .options li.control select {
+  float: right;
+  margin: 5px -5px 0 0;
+  width: auto;
+}
+#settings .options li.control .switch {
+  height: 25px;
+  width: 60px;
+  float: right;
+  margin: 5px -5px 0 0;
+  background: #f0f0f0;
+  border: 0;
+  cursor: pointer;
+  position: relative;
+  -webkit-appearance: none;
+  -o-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) inset;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) inset;
+  -ms-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) inset;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) inset;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.45) inset;
+  -o-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-background-clip: padding-box;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+}
+#settings .options li.control .switch:before {
+  height: 23px;
+  width: 23px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  background: #fff;
+  content: '';
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.1)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  -o-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-background-clip: padding-box;
+  -o-box-shadow: 0 0 2px 1px #ffffff inset, 0 0 2px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 0 2px 1px #ffffff inset, 0 0 2px rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 0 0 2px 1px #ffffff inset, 0 0 2px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0 0 2px 1px #ffffff inset, 0 0 2px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 2px 1px #ffffff inset, 0 0 2px rgba(0, 0, 0, 0.35);
+}
+#settings .options li.control .switch:after {
+  content: 'OFF';
+  color: #999;
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 0 1px 0 #fff;
+  position: absolute;
+  right: 6px;
+  top: 4px;
+}
+#settings .options li.control .switch:checked {
+  background-color: #3399ff;
+}
+#settings .options li.control .switch:checked:after {
+  content: 'ON';
+  color: #fff;
+  left: 10px;
+  right: auto;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+#settings .options li.control .switch:checked:before {
+  left: auto;
+  right: 1px;
+}
+#settings .options a {
+  display: block;
+  border: 0;
+  color: #00853f !important;
+  height: 35px;
+  line-height: 35px;
+  text-shadow: 0 1px 0 #fff;
+  font-weight: bold;
+  padding: 0 10px;
+  text-align: center;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 0.05)));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+  background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.05));
+}
+#settings .options a.parent {
+  position: relative;
+  text-align: left;
+}
+#settings .options a.parent::after {
+  content: '\203A';
+  font-family: Arial;
+  position: absolute;
+  right: 10px;
+  top: -2px;
+  line-height: 35px;
+  color: #666;
+  font-size: 24px;
+  text-shadow: 0 1px 0 #fff;
+}
+#settings .options a.parent .app_version {
+  color: #666;
+  font-size: 10px;
+  font-weight: normal;
+}
+#settings .options a:active {
+  background-color: #ccc;
+  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
+  -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.35) inset;
+}
+#settings .options h3 {
+  margin: -5px -10px 10px;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  font-size: 14px;
+  -o-border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -webkit-background-clip: padding-box;
+}
+#settings .options h3.title {
+  border-bottom: 1px solid #000;
+}
+#settings .options h3.sub {
+  background: transparent;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #86c440;
+  height: auto;
+  line-height: 18px;
+}
+#settings .options .go_back {
+  margin-left: 5px;
+  float: left;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transform: translate(30px, 0);
+  -moz-transform: translate(30px, 0);
+  -o-transform: translate(30px, 0);
+  -ms-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+#settings.open  > a {
+  background: #222;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0.15)), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+}
+#settings.open .options {
+  opacity: 1;
+  pointer-events: auto;
+}
+#settings.sub .go_back {
+  pointer-events: auto;
+  opacity: 1;
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+#settings.sub #top_settings {
+  opacity: 0;
+}
+#settings.sub .settings_content {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
 }
