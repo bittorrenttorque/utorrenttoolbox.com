@@ -1187,12 +1187,8 @@ checked = 8, error = 16, paused = 32, auto = 64, loaded = 128</p>'
                             control_html: true,
                             html: '<p>\
 Copyright &copy; ' + (new Date()).getFullYear() + '<br />\
-BitTorrent Inc.<br />\
+Palooza Inc.<br />\
 All Rights Reserved.</p>'
-                        },
-                        {
-                            control_html: 1,
-                            html: '<p><a class="open_sessions">Click here to manage sessions.</a></p>'
                         }
                     ]
                 }

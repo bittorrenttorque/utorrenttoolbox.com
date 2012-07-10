@@ -1391,10 +1391,11 @@ select:focus:required:invalid:focus {
   padding-left: 4px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
 
+  padding-left: 8px;
   margin-bottom: 0;
-  -webkit-border-radius: 14px;
-     -moz-border-radius: 14px;
-          border-radius: 14px;
+  -webkit-border-radius: 14px !important;
+     -moz-border-radius: 14px !important;
+          border-radius: 14px !important;
 }
 
 .form-search input,

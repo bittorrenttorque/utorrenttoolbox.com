@@ -23,6 +23,7 @@
         <script type="text/javascript" src="javascripts/application.js"></script>
         <script type="text/javascript" src="javascripts/settings.js"></script>
 
+        <!-- <link href='http://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'> -->
         <link href='http://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
         <!-- <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" /> -->
         <link rel="stylesheet" type="text/css" href="stylesheets/application.css" />
@@ -46,7 +47,8 @@
 
         <section id="tags">
             <h2>Categories</h2>
-            <p>
+            <br>
+            <p class="badge_list">
                 <a href=""><span class="badge">Category 1</span></a>
                 <a href=""><span class="badge">Category 2</span></a>
                 <a href=""><span class="badge">Category 3</span></a>
@@ -56,7 +58,7 @@
         <hr>
 
         <div class="row-fluid">
-            <div class="span6">
+            <div class="span5">
                 <div id="settings">
                     <div class="content">
                         <div class="options">
@@ -103,9 +105,9 @@
                     </div>
                 </div>  
             </div>
-            <div class="span6">
+            <div class="span7">
                 <section id="save-preset">
-                    <form action="" class="form-horizontal">
+                    <form action="" class="form-horizontal well">
                         <h3>Save New Preset</h3>
                         <br>
                         <fieldset>
@@ -146,6 +148,15 @@
                 </section>
 
                 <h3>Presets List</h3>
+
+                <form action="" class="well form-search">
+                    <div class="controls">
+                        <div class="input-append">
+                            <input type="search" class="input-xlarge" placeholder="Find presets" /><button type="submit" class="btn"><i class="icon-search"></i> Search</button>
+                        </div>
+                    </div>
+                </form>
+
                 <br>
                 <ul class="thumbnails">
                     <li class="span12">
